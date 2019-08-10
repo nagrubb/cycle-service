@@ -16,7 +16,7 @@ except Exception as e:
     init_error = str(e)
 
 
-@application.route("/cycle")
+@application.route("/api/v1/cycle")
 def cycle():
     try:
         if init_error:
