@@ -9,12 +9,10 @@ application = Flask(__name__)
 
 try:
     token_filename = os.environ['STRAVA_ACCESS_TOKEN_FILE']
-    token_filename = '/run/secrets/strava_access_token'
     access_token = open(token_filename, 'r').read()
     year_goal = int(os.environ['YEAR_GOAL'])
 except Exception as e:
     init_error = str(e)
-
 
 @application.route("/api/v1/cycle")
 def cycle():
