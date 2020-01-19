@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  cycle:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    secrets:
+      - strava_client_id
+      - strava_client_secret
+      - strava_refresh_token
+    environment:
+      - STRAVA_CLIENT_ID_FILE=/run/secrets/strava_client_id
+      - STRAVA_CLIENT_SECRET_FILE=/run/secrets/strava_client_secret
+      - STRAVA_REFRESH_TOKEN_FILE=/run/secrets/strava_refresh_token
+      - YEAR_GOAL=900
+    ports:
+      - "${PORT}:80"
+    restart: unless-stopped
+secrets:
+  strava_client_id:
+    file: strava_client_id.txt
+  strava_client_secret:
+    file: strava_client_secret.txt
+  strava_refresh_token:
+    file: strava_refresh_token.txt
