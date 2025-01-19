@@ -11,8 +11,7 @@ services:
     environment:
       - STRAVA_CLIENT_ID_FILE=/run/secrets/strava_client_id
       - STRAVA_CLIENT_SECRET_FILE=/run/secrets/strava_client_secret
-      - STRAVA_REFRESH_TOKEN_FILE=/run/secrets/strava_refresh_token
-      - YEAR_GOAL=1000
+      - YEAR_GOAL=3000
     ports:
       - "${PORT}:80"
     restart: unless-stopped
@@ -23,5 +22,3 @@ secrets:
     file: strava_client_id.txt
   strava_client_secret:
     file: strava_client_secret.txt
-  strava_refresh_token:
-    file: strava_refresh_token.txt
