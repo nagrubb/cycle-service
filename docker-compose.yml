@@ -12,10 +12,12 @@ services:
       - STRAVA_CLIENT_ID_FILE=/run/secrets/strava_client_id
       - STRAVA_CLIENT_SECRET_FILE=/run/secrets/strava_client_secret
       - STRAVA_REFRESH_TOKEN_FILE=/run/secrets/strava_refresh_token
-      - YEAR_GOAL=900
+      - YEAR_GOAL=1000
     ports:
       - "${PORT}:80"
     restart: unless-stopped
+  redis:
+    image: redis:7.4.2
 secrets:
   strava_client_id:
     file: strava_client_id.txt
